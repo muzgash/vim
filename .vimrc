@@ -20,6 +20,13 @@ set hlsearch
 "hightlighting disabling
 nmap \q :nohlsearch<CR> 
 
+"remap make
+nmap \m :!make<CR>
+nmap \c :!cmake ..<CR>
+
+"execute the file in this folder that is not a folder or a lib
+"nmap \r :!for i in *; do if [[ -x "$i" ]];then if [[ ! -d "$i" ]]; then if [[ $i == *so ]]; then continue; else EXE=$i; fi; fi; fi; done; echo $EXE<CR>
+
 "TOGGLE MAPS
 
 "line numbers
@@ -50,6 +57,9 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 
+"doxygen syntax activation
+let g:load_doxygen_syntax=1
+
 set backspace=2
 set autoindent
 set tabstop=4
@@ -63,3 +73,8 @@ set ruler
 set background=dark
 
 set mouse=a
+
+"Syntastic options
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
